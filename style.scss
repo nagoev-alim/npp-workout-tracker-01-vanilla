@@ -1,0 +1,116 @@
+@import "assets/scss/config/fonts";
+@import "assets/scss/config/reset";
+@import "assets/scss/config/vars";
+@import "assets/scss/config/utility";
+@import "assets/scss/modules/typography";
+@import "assets/scss/modules/fields";
+@import "assets/scss/modules/buttons";
+@import "assets/scss/modules/toast";
+@import "assets/scss/config/global";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.app-author {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.app-container {
+  --gap: 15px;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.workout-tracker {
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 0 25px 35px rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+  text-align: center;
+  overflow: hidden;
+
+  .title {
+    padding: 20px;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    div {
+      background-color: var(--bcp-grey);
+      color: #fff;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .row {
+    display: grid;
+
+    &:not(:first-child) {
+      border-top: 3px solid rgba(0, 0, 0, 0.6);
+    }
+
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(3, 1fr);
+      text-align: left;
+
+      &:not(:first-child) {
+        border: 0;
+      }
+    }
+
+    div {
+      &.duration,
+      &.date,
+      &.type {
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .duration {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr 40px;
+
+      div {
+        border: 0;
+      }
+
+      input {
+        width: 60px;
+      }
+
+      button {
+        padding: 4px;
+        border: 0;
+      }
+    }
+  }
+
+  svg {
+    pointer-events: none;
+  }
+
+  [type="date"],
+  [type="number"],
+  select {
+    border: 0;
+    width: 100%;
+  }
+
+  .footer {
+    display: grid;
+    padding: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+}
